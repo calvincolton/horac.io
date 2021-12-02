@@ -1,10 +1,13 @@
 import React, { useEffect } from "react";
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import Products from "../Products";
+import Home from "./components/Home";
+import Products from "./components/Products";
+import ProductDetails from "./components/ProductDetails";
+import CreateProduct from "./components/CreateProduct";
 import "./app.css";
-import { fetchUser } from "../../redux/currentUser";
-import { googleTagEvent } from "../../helpers";
+// import { fetchUser } from "../../redux/currentUser";
+// import { googleTagEvent } from "../../helpers";
 
 const gaTrackingId = "UA-999999999-1";
 
@@ -18,26 +21,22 @@ const App = () => {
   return (
     <div className="app">
       <BrowserRouter>
-        {/* routes need to be wrapped in a div */}
-        <div>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/products" component={Products} />
-          <Switch>
-            <Route path="/products/new" component={CreateProduct} />
-            <Route
-              exact
-              path="/products/:productId"
-              component={ProductDetails}
-            />
-          </Switch>
-          <Route exact path="/prodcuts">
-            <Redirect to="/products" />
-          </Route>
-        </div>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/products" element={<Products />} />
+          <Route path="/products/new" element={<CreateProduct />} />
+          <Route
+            exact
+            path="/products/:productId"
+            element={<ProductDetails />}
+          />
+        </Routes>
       </BrowserRouter>
     </div>
   );
 };
+
+export default App;
 
 // class App extends Component {
 //   componentDidMount() {

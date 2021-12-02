@@ -1,21 +1,12 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import Root from "./Root";
-import App from "./components/App";
+import { combineReducers } from "redux";
+// import { adminReducer } from "./admin";
+// import { currentUserReducer } from "./currentUser";
+// import { productsReducer } from "./products";
+// import { productDetailsReducer } from "./productDetails";
 
-// // if you decide to use sentry
-// async function importErrorReporting() {
-// // do not load Sentry's error reporting module in the development environment
-//   if (process.env.NODE_ENV !== "development") {
-//     console.log("Sentry, reporting for production!");
-//     await import("./errorReporting");
-//   }
-// }
-// importErrorReporting();
-
-ReactDOM.render(
-  <Root>
-    <App />
-  </Root>,
-  document.querySelector("#root")
-);
+export default combineReducers({
+  // admin: adminReducer,
+  // user: currentUserReducer,
+  // products: productsReducer,
+  // productDetails: productDetailsReducer,
+});

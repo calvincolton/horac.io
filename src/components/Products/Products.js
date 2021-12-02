@@ -1,22 +1,23 @@
-import React, { useEffect } from "React";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { productsSelector } from "../../redux/products";
+// import { productsSelector } from "../../redux/products";
 import "./products.css";
 
 const Products = () => {
-  const { products, loading, error } = useSelector(productsSelector);
-  const dispatch = useDispatch();
+  // const { products, loading, error } = useSelector(productsSelector);
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(fetchProducts());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(fetchProducts());
+  // }, []);
 
   return (
     <div className="products">
+      <h2>Products</h2>
       <ul>
-        {products.map((product) => (
+        {/* {products.map((product) => (
           <li key={product.id}>{product.title}</li>
-        ))}
+        ))} */}
       </ul>
     </div>
   );
