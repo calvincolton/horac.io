@@ -4,7 +4,7 @@ import { createStore, applyMiddleware } from "redux";
 import reduxThunk from "redux-thunk";
 import reducers from "./redux";
 
-export default ({ children, initialState = {} }) => {
+const Root = ({ children, initialState = {} }) => {
   const store = createStore(
     reducers,
     initialState,
@@ -12,6 +12,8 @@ export default ({ children, initialState = {} }) => {
   );
   return <Provider store={store}>{children}</Provider>;
 };
+
+export default Root;
 
 // NOTE: this file, Root.js, provides data layer control (i.e. redux).
 // App.js provides rendering layer control (i.e. react-router-dom)
