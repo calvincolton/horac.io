@@ -12,7 +12,7 @@ const Products = () => {
     setLoading(true);
     const callback = () => setLoading(false);
     dispatch(fetchProducts({ callback }));
-  }, []);
+  }, [dispatch]);
 
   if (loading) {
     return <div>Loading...</div>;
