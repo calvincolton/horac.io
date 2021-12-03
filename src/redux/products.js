@@ -25,12 +25,16 @@ export const productsReducer = (state = initialState, action) => {
   }
 };
 
-export const fetchProducts = () => async (dispatch) => {
-  try {
-    const res = await axios.get("https://jsonplaceholder.typicode.com/albums");
-    console.log("res", res);
-    dispatch({ type: FETCH_PRODUCTS, payload: res.data });
-  } catch (err) {
-    dispatch({ type: PRODUCTS_ERROR, payload: err });
-  }
-};
+export const fetchProducts =
+  ({ callback = () => {} }) =>
+  async (dispatch) => {
+    try {
+      const res = await axios.get(
+        "https://jsonplaceholder.typicode.com/albums"
+      );
+      callback();
+      dispatch({ type: FETCH_PRODUCTS, payload: res.data });
+    } catch (err) {
+      dispatch({ type: PRODUCTS_ERROR, payload: err });
+    }
+  };
