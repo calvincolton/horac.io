@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import Home from "./components/Home";
+import Header from "./components/Header";
 import Products from "./components/Products";
 import ProductDetails from "./components/ProductDetails";
 import CreateProduct from "./components/CreateProduct";
@@ -21,16 +22,19 @@ const App = () => {
   return (
     <div className="app">
       <BrowserRouter>
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/products" element={<Products />} />
-          <Route path="/products/new" element={<CreateProduct />} />
-          <Route
-            exact
-            path="/products/:productId"
-            element={<ProductDetails />}
-          />
-        </Routes>
+        <Header />
+        <div className="container">
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/products" element={<Products />} />
+            <Route path="/products/new" element={<CreateProduct />} />
+            <Route
+              exact
+              path="/products/:productId"
+              element={<ProductDetails />}
+            />
+          </Routes>
+        </div>
       </BrowserRouter>
     </div>
   );
