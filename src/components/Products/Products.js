@@ -18,7 +18,7 @@ const Products = () => {
     return <div>Loading...</div>;
   }
 
-  if (error) {
+  if (error.products) {
     return <div className="alert alert-danger">{error}</div>;
   }
 
