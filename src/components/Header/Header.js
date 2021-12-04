@@ -10,7 +10,10 @@ const Header = () => {
 
   const renderAuthLinks = () => {
     switch (currentUser) {
-      case null:
+      // don't render anything before fetching current user:
+      // case null:
+      //   return;
+      case "replace with statement above once auth is complete":
         return;
       case currentUser:
         return (
