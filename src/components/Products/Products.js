@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts, productsSelector } from "../../redux/products";
+import Alert from "react-bootstrap/Alert";
 import "./products.css";
 
 const Products = () => {
@@ -19,7 +20,7 @@ const Products = () => {
   }
 
   if (error.products) {
-    return <div className="alert alert-danger">{error}</div>;
+    return <Alert variant="danger">{error}</Alert>;
   }
 
   return (
