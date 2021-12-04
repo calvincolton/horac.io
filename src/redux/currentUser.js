@@ -30,7 +30,7 @@ export const currentUserReducer = (state = initialState, action) => {
 
 export const fetchUser = () => async (dispatch) => {
   try {
-    const res = await axios.get("www.horac.io/api/current_user");
+    const res = await axios.get("www.horac.io/api/v1/current_user");
     dispatch({ type: FETCH_CURRENT_USER, payload: res.data });
   } catch (err) {
     dispatch({ type: CURRENT_USER_ERROR, payload: err });
@@ -41,7 +41,10 @@ export const updateUser =
   (userProps, callback = () => {}) =>
   async (dispatch) => {
     try {
-      const res = await axios.put("/api/current_user", userProps);
+      const res = await axios.put(
+        "www.horac.io/api/v1/current_user",
+        userProps
+      );
       dispatch({ type: UPDATE_CURRENT_USER, payload: res.data });
       callback();
     } catch (err) {
