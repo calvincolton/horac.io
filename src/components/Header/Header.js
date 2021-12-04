@@ -7,15 +7,14 @@ import { currentUserSelector } from "../../redux/currentUser";
 
 const Header = () => {
   const { currentUser, error } = useSelector(currentUserSelector);
+  console.log("currentUser", currentUser);
 
   const renderAuthLinks = () => {
     switch (currentUser) {
       // don't render anything before fetching current user:
-      // case null:
-      //   return;
-      case "replace with statement above once auth is complete":
+      case null:
         return;
-      case currentUser:
+      case currentUser?.id:
         return (
           <Fragment>
             <Nav>

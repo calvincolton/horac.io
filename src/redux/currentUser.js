@@ -28,7 +28,7 @@ export const currentUserReducer = (state = initialState, action) => {
   }
 };
 
-export const fetchUser = () => async (dispatch) => {
+export const fetchCurrentUser = () => async (dispatch) => {
   try {
     const res = await axios.get("www.horac.io/api/v1/current_user");
     dispatch({ type: FETCH_CURRENT_USER, payload: res.data });
@@ -37,7 +37,7 @@ export const fetchUser = () => async (dispatch) => {
   }
 };
 
-export const updateUser =
+export const updateCurrentUser =
   (userProps, callback = () => {}) =>
   async (dispatch) => {
     try {
