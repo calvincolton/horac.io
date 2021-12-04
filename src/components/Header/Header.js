@@ -17,41 +17,31 @@ const Header = () => {
       case currentUser?.id:
         return (
           <Fragment>
-            <Nav>
-              <Link to="/products" className="nav-link">
-                Products
-              </Link>
-            </Nav>
-            <Nav>
+            <Nav.Link>
               <Link to="/my-products" className="nav-link">
                 My Products
               </Link>
-            </Nav>
-            <Nav>
+            </Nav.Link>
+            <Nav.Link>
               <Link to="/auth/log-out" className="nav-link">
                 Log out
               </Link>
-            </Nav>
+            </Nav.Link>
           </Fragment>
         );
       default:
         return (
           <Fragment>
-            <Nav>
-              <Link to="/products" className="nav-link">
-                Products
-              </Link>
-            </Nav>
-            <Nav>
+            <Nav.Link>
               <Link to="/oauth?type=login" className="nav-link">
                 Log in
               </Link>
-            </Nav>
-            <Nav>
+            </Nav.Link>
+            <Nav.Link>
               <Link to="/oauth?type=signup" className="nav-link">
                 Sign Up
               </Link>
-            </Nav>
+            </Nav.Link>
           </Fragment>
         );
     }
@@ -65,7 +55,12 @@ const Header = () => {
         </Link>
       </Navbar.Brand>
       <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="me-auto">{renderAuthLinks()}</Nav>
+        <Nav.Link>
+          <Link to="/products" className="nav-link">
+            Products
+          </Link>
+          {renderAuthLinks()}
+        </Nav.Link>
       </Navbar.Collapse>
     </Navbar>
   );
